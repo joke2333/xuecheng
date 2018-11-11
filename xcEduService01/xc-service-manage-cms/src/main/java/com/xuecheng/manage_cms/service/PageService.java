@@ -149,7 +149,7 @@ public class PageService {
 
     // 根据id删除页面
     public ResponseResult delete(String id){
-        if (id!=null || !id.equals("")){
+        if (id!=null && !id.equals("")){
             Optional<CmsPage> one = cmsPageRepository.findById(id);
             if (one.isPresent()){
                 cmsPageRepository.deleteById(id);

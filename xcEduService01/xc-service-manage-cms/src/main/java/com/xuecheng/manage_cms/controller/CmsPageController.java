@@ -21,10 +21,9 @@ public class CmsPageController implements CmsPageControllerApi {
     private PageService pageService;
 
     @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(@PathVariable("page") int page,@PathVariable("size") int size, QueryPageRequest queryPageRequest) {
-        return pageService.findList(page,size,queryPageRequest);
+    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
+        return pageService.findList(page, size, queryPageRequest);
     }
-
 
     @PostMapping("/add")
     public CmsPageResult add(@RequestBody CmsPage cmspage) {
@@ -32,13 +31,15 @@ public class CmsPageController implements CmsPageControllerApi {
     }
 
     @GetMapping("/get/{id}")
-    public CmsPage findByPageId(@PathVariable String id) {
+    public CmsPage findById(@PathVariable String id) {
         return pageService.findByPageId(id);
     }
+
     @PutMapping("/edit/{id}")
-    public CmsPageResult update(@PathVariable String id,@RequestBody CmsPage cmsPage) {
-        return pageService.update(id,cmsPage);
+    public CmsPageResult update(@PathVariable String id, @RequestBody CmsPage cmsPage) {
+        return pageService.update(id, cmsPage);
     }
+
     @DeleteMapping("/del/{id}")
     public ResponseResult delete(@PathVariable String id) {
         return pageService.delete(id);
